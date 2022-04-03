@@ -95,38 +95,11 @@ from exceptions import ValidateError
 from validator import Validator
 from validator import DataWithDate
 from datetime import datetime
-
-
 import random
 
 # import re
 
 __author__ = 'Anton Zemski'
-
-
-# def validate_name(name: str) -> None:
-#     """Проверка введенного имени"""
-#     # if name.isspace():
-#     #     raise Exception('Пробелы - не имя! \n')
-#
-#     if not name:
-#         raise ValidateError('Ошибка: Вы не ввели имя.\n')
-#
-#     elif len(name) < 3:
-#         raise ValidateError('Ошибка: Минимальная длина имени - 3 символа.\n')
-#
-#     elif name.count(' ') > 1:
-#         raise ValidateError('Ошибка: Максимальное количество пробелов - 1 символ.\n')
-#
-#
-# def validate_age(age: int) -> None:
-#     """Проверка введенного возраста"""
-#     if age <= 0:
-#         raise ValidateError('Ошибка: Вам не может быть 0 лет или меньше.\n')
-#
-#     elif age < 14:
-#         raise ValidateError('Ошибка: Программой запрещено пользоваться, если вам меньше 14 лет.\n')
-
 
 def get_passport_advice(age: int) -> str | None:
     """Рекомендации по действиям с паспортом"""
@@ -138,14 +111,6 @@ def get_passport_advice(age: int) -> str | None:
 
     elif 45 <= age <= 46:
         return '\nНе забудь заменить паспорт по достижению 45 лет.'
-
-
-# def clear_whitespaces(name: str) -> str:
-#     """"Очищаем введенные данные от пробелов в начале и конце строки"""
-#     name = name.strip()
-#     # name = (re.sub(r'\s+', ' ', name))
-#     return name
-
 
 def guess_number_game():
     random_number = random.randint(1, 5)
