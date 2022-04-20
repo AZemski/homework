@@ -1,4 +1,4 @@
-from authenticator import Authenticator
+from authenticator import Authenticator, Validator
 from exceptions import RegistrationError, AuthorizationError
 from datetime import datetime
 import random
@@ -46,33 +46,11 @@ def main() -> bool:
         print(f"Привет, {user_authenticator.login[0].upper() + user_authenticator.login[1:]} \nВремя авторизации: {clock} \nВы пытались войти: {user_authenticator.errors_count} раз")
     else:
         try:
-            user_authenticator.registrate(login, password)
+            user_authenticator.registrate(Validator(login, password))
         except RegistrationError as error:
             print(error)
             return False
-    # guess_number_game()
     return True
-
-    # while True:
-    #     login = input("Введите логин: ")
-    #     password = input("Введите пароль: ")
-    #
-    #     if user.login:
-    #         try:
-    #             user.authorize(login, password)
-    #             clock = datetime.fromisoformat(user.last_success_login_at).strftime("%d.%m.%Y %H:%M:%S")
-    #             print(f"Привет, {user.login[0].upper() + user.login[1:]} \nВремя авторизации: {clock} \nВы пытались войти: {user.errors_count} раз")
-    #             break
-    #         except AuthorizationError as error:
-    #             print(error)
-    #
-    #     else:
-    #         try:
-    #             user.registrate(login, password)
-    #         except RegistrationError as error:
-    #             print(error)
-    #         break
-
 
 if __name__ == '__main__':
     user_authenticator = Authenticator()
